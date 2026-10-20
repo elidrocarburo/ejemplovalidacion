@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="estilos.css">
+
+  <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+</head>
+<body>
+  <div class="contenedor_titulo ancho margen centrar">
+    <h1>FORMULARIO - CONTACTANOS</h1>
+  </div>
+
+  <br>
+
+  <form class="ancho margen contenedor_formulario" action="guardar.php" method="get" enctype="text/plain" id="formulario_comentarios">
+    <div class="contenedor_informacion">
+      <label for=""><span class="rojo">*</span> Nombre:</label>
+      <br>
+      <label for="">Email:</label>
+      <br>
+      <label for="">Teléfono:</label>
+      <br>
+      <label for=""><span class="rojo">*</span> Fecha:</label>
+      <br>
+      <label for=""><span class="rojo">*</span> Comentarios:</label>
+    </div>
+
+    <div class="contenedor_campos">
+      <input type="text" name="nombre" id="nombre" class="campos">
+      <br>
+      <input type="email" name="correo" id="correo" class="campos">
+      <br>
+      <input type="tel" placeholder="Ejem:99912345678" name="telefono" id="nombre" class="campos">
+      <br>
+      <input type="date" name="fecha" id="fecha" class="campos">
+      <br>
+      <textarea name="comentarios" id="comentarios" class="comment"></textarea>
+      <br>
+      <button type="button" class="btn_rojo" id="boton_validar">Enviar comentario</button>
+    </div>
+  </form>
+
+  <!-- función para validar  -->
+  <script>
+    $("#boton_validar").click(function(){
+
+      // validar nombre
+      if ($("#nombre").val().trim() == '') {
+        alert("Escribe tu nombre ");
+        $("#nombre").focus();
+        return 0;
+      }
+
+      // validar fecha
+      if ($("#fecha").val().trim() == '') {
+        alert("Escoge una fecha");
+        $("#fecha").focus();
+        return 0;
+      }
+
+      // validar comentario
+      if ($("#comentarios").val().trim() == '') {
+        alert("Escribe tu comentario");
+        $("#comentarios").focus();
+        return 0;
+      }
+
+      // una vez validado nuestros campos, ya se puede mandar la información al lugar que queramos guardarlo
+      $("#formulario_comentarios").submit();
+    }
+  );
+  </script>
+
+</body>
+</html>
